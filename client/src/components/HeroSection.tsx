@@ -50,7 +50,7 @@ export default function HeroSection() {
             className="text-lg sm:text-xl lg:text-2xl text-muted-foreground max-w-2xl mb-4 opacity-0 animate-fade-in-up stagger-2"
             data-testid="hero-subheadline"
           >
-            Full-Stack Developer specializing in
+            Hi, I'm Joseph Onofiok and I am Full-Stack Developer specializing in
           </p>
 
           {/* Expertise Pills */}

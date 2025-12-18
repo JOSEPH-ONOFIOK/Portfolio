@@ -47,7 +47,7 @@ export default function Navigation() {
             className="text-xl lg:text-2xl font-bold tracking-tight"
             data-testid="nav-logo"
           >
-            <span className="gradient-text">dev</span>
+            <span className="gradient-text">Raedoncreep</span>
             <span className="text-foreground">.portfolio</span>
           </a>
 

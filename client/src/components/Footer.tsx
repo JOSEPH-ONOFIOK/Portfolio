@@ -1,8 +1,8 @@
 import { SiGithub, SiLinkedin, SiX } from 'react-icons/si';
 
 const socialLinks = [
-  { name: 'GitHub', icon: SiGithub, href: 'https://github.com' },
-  { name: 'LinkedIn', icon: SiLinkedin, href: 'https://linkedin.com' },
+  { name: 'GitHub', icon: SiGithub, href: 'https://github.com/JOSEPH-ONOFIOK' },
+  { name: 'LinkedIn', icon: SiLinkedin, href: 'https://www.linkedin.com/in/joseph-onofiok-42b999283?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app' },
   { name: 'X', icon: SiX, href: 'https://x.com' },
 ];
 
@@ -33,7 +33,7 @@ export default function Footer() {
               className="text-xl font-bold tracking-tight"
               data-testid="footer-logo"
             >
-              <span className="gradient-text">dev</span>
+              <span className="gradient-text">Raedoncreep</span>
               <span className="text-foreground">.portfolio</span>
             </a>
             <p className="text-sm text-muted-foreground">
