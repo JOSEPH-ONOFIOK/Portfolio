@@ -1,16 +1,49 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
+import { insertContactMessageSchema } from "@shared/schema";
+import { z } from "zod";
 
 export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
-  // put application routes here
-  // prefix all routes with /api
+  // Contact form submission endpoint
+  app.post("/api/contact", async (req, res) => {
+    try {
+      const validatedData = insertContactMessageSchema.parse(req.body);
+      const message = await storage.createContactMessage(validatedData);
+      res.status(201).json({ success: true, message: "Message sent successfully", id: message.id });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        res.status(400).json({ 
+          success: false, 
+          message: "Validation failed", 
+          errors: error.errors 
+        });
+      } else {
+        console.error("Contact form error:", error);
+        res.status(500).json({ 
+          success: false, 
+          message: "Failed to send message" 
+        });
+      }
+    }
+  });
 
-  // use storage to perform CRUD operations on the storage interface
-  // e.g. storage.insertUser(user) or storage.getUserByUsername(username)
+  // Get all contact messages (for admin purposes)
+  app.get("/api/contact", async (_req, res) => {
+    try {
+      const messages = await storage.getContactMessages();
+      res.json(messages);
+    } catch (error) {
+      console.error("Get messages error:", error);
+      res.status(500).json({ 
+        success: false, 
+        message: "Failed to fetch messages" 
+      });
+    }
+  });
 
   return httpServer;
 }
