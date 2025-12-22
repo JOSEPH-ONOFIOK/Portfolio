@@ -72,7 +72,7 @@ export default function ContactSection() {
 
     try {
       const response = await fetch(
-        'https://mailer-9dph.onrender.com/send-email',
+        'https://mailer-hoz8.onrender.com/send-email',
         {
           method: 'POST',
           headers: {
