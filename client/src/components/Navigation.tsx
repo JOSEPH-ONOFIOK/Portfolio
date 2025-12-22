@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import ThemeToggle from '@/components/ThemeToggle';
 
 const navLinks = [
   { href: '#expertise', label: 'Expertise' },
@@ -31,14 +32,16 @@ export default function Navigation() {
   };
 
   return (
+    
     <nav
+    
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
           ? 'glass border-b border-border/50' 
           : 'bg-transparent'
       }`}
       data-testid="navigation"
-    >
+    >  <ThemeToggle />
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
@@ -110,6 +113,7 @@ export default function Navigation() {
               >
                 Get in Touch
               </Button>
+             
             </div>
           </div>
         </div>
