@@ -3,7 +3,7 @@ import { SiGithub, SiLinkedin, SiX } from 'react-icons/si';
 const socialLinks = [
   { name: 'GitHub', icon: SiGithub, href: 'https://github.com/JOSEPH-ONOFIOK' },
   { name: 'LinkedIn', icon: SiLinkedin, href: 'https://www.linkedin.com/in/joseph-onofiok-42b999283?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app' },
-  { name: 'X', icon: SiX, href: 'https://x.com' },
+  { name: 'X', icon: SiX, href: 'https://x.com/__DExT3R'},
 ];
 
 const navLinks = [

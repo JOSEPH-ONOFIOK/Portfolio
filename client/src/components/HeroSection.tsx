@@ -2,6 +2,15 @@ import { ChevronDown, FileText, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ThreeHero from './ThreeHero';
 
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+
 export default function HeroSection() {
   const scrollToProjects = () => {
     const element = document.querySelector('#projects');
@@ -11,8 +20,8 @@ export default function HeroSection() {
   };
 
   return (
-    <section 
-      id="hero" 
+    <section
+      id="hero"
       className="relative min-h-screen w-full flex items-center justify-center overflow-hidden"
       data-testid="hero-section"
     >
@@ -26,16 +35,18 @@ export default function HeroSection() {
       <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-32">
         <div className="max-w-4xl">
           {/* Tag */}
-          <div 
+          <div
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 mb-8 opacity-0 animate-fade-in-up"
             data-testid="hero-tag"
           >
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-            <span className="text-sm font-medium text-muted-foreground">Available for new projects</span>
+            <span className="text-sm font-medium text-muted-foreground">
+              Available for new projects
+            </span>
           </div>
 
           {/* Headline */}
-          <h1 
+          <h1
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight mb-6 opacity-0 animate-fade-in-up stagger-1"
             data-testid="hero-headline"
           >
@@ -46,15 +57,15 @@ export default function HeroSection() {
           </h1>
 
           {/* Subheadline */}
-          <p 
+          <p
             className="text-lg sm:text-xl lg:text-2xl text-muted-foreground max-w-2xl mb-4 opacity-0 animate-fade-in-up stagger-2"
             data-testid="hero-subheadline"
           >
-            Hi, I'm Joseph Onofiok and I am Full-Stack Developer specializing in
+            Hi, I'm Joseph Onofiok and I am a Full-Stack Developer specializing in
           </p>
 
           {/* Expertise Pills */}
-          <div 
+          <div
             className="flex flex-wrap gap-3 mb-10 opacity-0 animate-fade-in-up stagger-3"
             data-testid="hero-expertise-pills"
           >
@@ -70,12 +81,12 @@ export default function HeroSection() {
           </div>
 
           {/* CTAs */}
-          <div 
+          <div
             className="flex flex-wrap gap-4 opacity-0 animate-fade-in-up stagger-4"
             data-testid="hero-ctas"
           >
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               onClick={scrollToProjects}
               className="gap-2 text-base"
               data-testid="hero-cta-projects"
@@ -83,30 +94,73 @@ export default function HeroSection() {
               View Projects
               <ArrowRight className="w-4 h-4" />
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline"
-              className="gap-2 text-base backdrop-blur-sm bg-background/20"
-              data-testid="hero-cta-resume"
-            >
-              <FileText className="w-4 h-4" />
-              Download Resume
-            </Button>
+
+            {/* Resume Dialog */}
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="gap-2 text-base backdrop-blur-sm bg-background/20"
+                  data-testid="hero-cta-resume"
+                >
+                  <FileText className="w-4 h-4" />
+                  Request Resume
+                </Button>
+              </DialogTrigger>
+
+              <DialogContent className="sm:max-w-md">
+                <DialogHeader>
+                  <DialogTitle>Request My Resume</DialogTitle>
+                  <DialogDescription>
+                    I share my resume directly to keep it updated and
+                    personalized. Reach out through any option below.
+                  </DialogDescription>
+                </DialogHeader>
+
+                <div className="mt-4 space-y-3 text-sm">
+                  <p>
+                    📧 <strong>Email:</strong>{' '}
+                    <a
+                      href="mailto:josephonofiok@gmail.com"
+                      className="text-primary underline"
+                    >
+                      josephonofiok08@gmail.com
+                    </a>
+                  </p>
+
+                  <p>
+                    💼 <strong>LinkedIn:</strong>{' '}
+                    <a
+                      href="https://www.linkedin.com/in/joseph-onofiok-42b999283?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-primary underline"
+                    >
+                      linkedin.com/in/josephonofiok
+                    </a>
+                  </p>
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div 
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 opacity-0 animate-fade-in-up stagger-5"
-        data-testid="scroll-indicator"
-      >
-        <span className="text-xs font-medium text-muted-foreground uppercase tracking-widest">Scroll</span>
-        <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex justify-center p-2">
-          <div className="w-1 h-2 rounded-full bg-primary animate-bounce" />
-        </div>
-        <ChevronDown className="w-4 h-4 text-muted-foreground animate-bounce" />
-      </div>
+<div
+  className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 opacity-0 animate-fade-in-up stagger-5 hidden md:flex"
+  data-testid="scroll-indicator"
+>
+  <span className="text-xs font-medium text-muted-foreground uppercase tracking-widest">
+    Scroll
+  </span>
+  <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex justify-center p-2">
+    <div className="w-1 h-2 rounded-full bg-primary animate-bounce" />
+  </div>
+  <ChevronDown className="w-4 h-4 text-muted-foreground animate-bounce" />
+</div>
+
     </section>
   );
 }

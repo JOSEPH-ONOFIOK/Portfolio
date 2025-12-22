@@ -6,12 +6,12 @@ import SkillsSection from '@/components/SkillsSection';
 import AboutSection from '@/components/AboutSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
-import ThemeToggle from '@/components/ThemeToggle';
+// import ThemeToggle from '@/components/ThemeToggle';
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background" data-testid="home-page">
-      <ThemeToggle />
+      {/* <ThemeToggle /> */}
       <Navigation />
       <main>
         <HeroSection />
