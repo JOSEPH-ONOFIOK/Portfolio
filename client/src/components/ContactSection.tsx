@@ -72,7 +72,7 @@ export default function ContactSection() {
 
     try {
       const response = await fetch(
-        'https://node-mailer-hf6i.onrender.com/send-email',
+        'http://localhost:5000/send-email',
         {
           method: 'POST',
           headers: {
