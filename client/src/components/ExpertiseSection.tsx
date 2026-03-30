@@ -120,8 +120,6 @@ export default function ExpertiseSection() {
               >
                 <Card
                   className={`group relative p-6 lg:p-8 gradient-border hover-elevate transition-all duration-500 ${
-                    index === 1 ? 'lg:translate-y-12' : ''
-                  } ${
                     isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
                   }`}
                   style={{ transitionDelay: `${(index + 2) * 100}ms` }}

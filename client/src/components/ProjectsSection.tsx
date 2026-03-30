@@ -1,4 +1,4 @@
-import { ExternalLink, Github, Code2, Blocks, Brain, type LucideIcon } from 'lucide-react';
+import { ExternalLink, Github, Code2, Blocks, Brain, ShoppingBag, Users, Monitor, type LucideIcon } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useInView } from '@/hooks/useInView';
@@ -117,6 +117,54 @@ const projects: Project[] = [
     colorKey: 'blue',
     demoUrl: '#',
     githubUrl: '#',
+  },
+  {
+    id: 'perrys-hair',
+    title: "Perry's Hair — E-Commerce Store",
+    description:
+      'A full-featured online hair store with multi-region currency support, letting customers across Nigeria, the US, UK, Europe, Ghana, South Africa, Canada, and Australia shop with prices displayed in their local currency.',
+    category: 'e-commerce',
+    icon: ShoppingBag,
+    technologies: ['React', 'Next.js', 'TypeScript', 'TailwindCSS', 'Stripe'],
+    highlights: [
+      'Multi-region currency detection across 8+ countries',
+      'Full product catalogue with cart and checkout flow',
+      'Live storefront deployed at perryshairline.store',
+    ],
+    colorKey: 'cyan',
+    demoUrl: 'https://www.perryshairline.store',
+  },
+  {
+    id: 'redeem-oneness',
+    title: 'Redeem Oneness — Church Community Platform',
+    description:
+      'A faith-driven networking platform that turns churches into economic opportunity engines — connecting members with jobs, mentors, and businesses within their faith community.',
+    category: 'software',
+    icon: Users,
+    technologies: ['React', 'Next.js', 'TypeScript', 'PostgreSQL', 'TailwindCSS'],
+    highlights: [
+      'Member, business, and mentor registration flows',
+      'Job board and opportunity listings within church networks',
+      'Community-driven discovery of faith-aligned opportunities',
+    ],
+    colorKey: 'purple',
+    demoUrl: 'https://www.redeemoneness.org',
+  },
+  {
+    id: 'xmartx-portfolio',
+    title: 'SMART.SYS — Developer Portfolio',
+    description:
+      'A hacker-aesthetic developer portfolio with a terminal-inspired dark UI, showcasing projects, capabilities, and social links with a distinct green-on-black visual identity.',
+    category: 'software',
+    icon: Monitor,
+    technologies: ['React', 'TypeScript', 'TailwindCSS', 'Vite'],
+    highlights: [
+      'Terminal-inspired UI with animated green-on-black aesthetic',
+      'Sections for portfolio, capabilities, and Twitter integration',
+      'Deployed at xmartx.fun with custom domain',
+    ],
+    colorKey: 'violet',
+    demoUrl: 'https://www.xmartx.fun',
   },
 ];
 

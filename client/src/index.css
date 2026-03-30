@@ -308,4 +308,29 @@
   .stagger-3 { animation-delay: 0.3s; }
   .stagger-4 { animation-delay: 0.4s; }
   .stagger-5 { animation-delay: 0.5s; }
+
+  /* Shimmer effect for skeleton / hover accents */
+  @keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+  .animate-shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(250 90% 60% / 0.15) 40%,
+      hsl(195 90% 55% / 0.2) 50%,
+      hsl(280 85% 60% / 0.15) 60%,
+      transparent 100%
+    );
+    background-size: 200% auto;
+    animation: shimmer 2.5s linear infinite;
+  }
+
+  /* Typing cursor blink */
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  .animate-blink { animation: blink 1s step-end infinite; }
 }

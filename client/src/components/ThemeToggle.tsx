@@ -24,7 +24,7 @@ export default function ThemeToggle() {
       variant="ghost"
       size="icon"
       onClick={toggleTheme}
-      className="fixed top-4 right-4 z-[9999] bg-card/80 backdrop-blur-sm border border-border pointer-events-auto"
+      className="bg-card/80 backdrop-blur-sm border border-border"
       aria-label="Toggle theme"
     >
       {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
