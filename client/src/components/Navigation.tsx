@@ -150,7 +150,7 @@ export default function Navigation() {
                 Get in Touch
               </Button>
               <ThemeToggle />
-            </div>
+             </div>
           </div>
         </div>
       )}

@@ -1,7 +1,18 @@
+import { useState } from 'react';
 import { ExternalLink, Github, Code2, Blocks, Brain, ShoppingBag, Users, Monitor, type LucideIcon } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useInView } from '@/hooks/useInView';
+
+type FilterKey = 'all' | 'blockchain' | 'software' | 'ai' | 'e-commerce';
+
+const filters: { key: FilterKey; label: string }[] = [
+  { key: 'all', label: 'All' },
+  { key: 'blockchain', label: 'Blockchain' },
+  { key: 'software', label: 'Software' },
+  { key: 'ai', label: 'AI / ML' },
+  { key: 'e-commerce', label: 'E-Commerce' },
+];
 
 type ColorKey = 'violet' | 'cyan' | 'purple' | 'blue';
 
@@ -170,12 +181,17 @@ const projects: Project[] = [
 
 export default function ProjectsSection() {
   const { ref, isInView } = useInView({ threshold: 0.05 });
+  const [activeFilter, setActiveFilter] = useState<FilterKey>('all');
+
+  const filtered = activeFilter === 'all'
+    ? projects
+    : projects.filter(p => p.category === activeFilter);
 
   return (
     <section id="projects" ref={ref} className="relative py-24 lg:py-32" data-testid="projects-section">
       <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
         {/* Section Header */}
-        <div className="max-w-3xl mb-16 lg:mb-20">
+        <div className="max-w-3xl mb-10 lg:mb-12">
           <Badge variant="secondary" className="mb-4" data-testid="projects-badge">
             Featured Work
           </Badge>
@@ -197,9 +213,43 @@ export default function ProjectsSection() {
           </p>
         </div>
 
-        {/* Projects Grid - Asymmetric Layout */}
+        {/* Filter Tabs */}
+        <div
+          className={`flex flex-wrap gap-2 mb-12 transition-all duration-700 delay-200 ${
+            isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}
+        >
+          {filters.map(f => (
+            <button
+              key={f.key}
+              onClick={() => setActiveFilter(f.key)}
+              className={`px-4 py-1.5 rounded-full text-sm font-medium border transition-all duration-200 ${
+                activeFilter === f.key
+                  ? 'bg-primary text-primary-foreground border-primary'
+                  : 'bg-transparent text-muted-foreground border-border hover:text-foreground hover:border-foreground/30'
+              }`}
+            >
+              {f.label}
+              {f.key === 'all' && (
+                <span className="ml-1.5 text-xs opacity-60">{projects.length}</span>
+              )}
+              {f.key !== 'all' && (
+                <span className="ml-1.5 text-xs opacity-60">
+                  {projects.filter(p => p.category === f.key).length}
+                </span>
+              )}
+            </button>
+          ))}
+        </div>
+
+        {/* Projects Grid */}
+        {filtered.length === 0 && (
+          <div className="py-24 text-center text-muted-foreground">
+            No projects in this category yet.
+          </div>
+        )}
         <div className="space-y-12 lg:space-y-16">
-          {projects.map((project, index) => {
+          {filtered.map((project, index) => {
             const colors = colorClasses[project.colorKey];
             return (
               <Card
